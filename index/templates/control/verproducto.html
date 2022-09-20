@@ -1,0 +1,50 @@
+{% extends "partials/bodytablas.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block tittle %}
+Proveedor
+{% endblock %}
+{% block contenido %}
+
+<!--<div class="container-3">
+    <div class="position-absolute top-50 start-50 translate-middle shadow p-5 bg-body rounded">-->
+
+    <div class="contenedor3 ">
+        <div class=" p-5 w-25 shadow tabla position-absolute top-50 start-50 translate-middle" style="background-color: rgb(219 237 239);">
+            
+            <table class="mb-5 table  results">
+                <thead class="border1 border-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <td scope="col">{{producto.id}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Descripción</th>
+                        <td scope="col">{{producto.descripcion}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Precio</th>
+                        <td scope="col">$ {{producto.precio}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Categoría</th>
+                        <td scope="col">{{producto.categoria}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Estado</th>
+                        <td scope="col">{{producto.estado}}</td>
+                    </tr>
+                </thead>
+                
+
+            </table>
+            <div class="ventana">
+                <a href="{% url 'control-producto' %}" class="btn mt-5 w-3 position-absolute bottom-0 start-50 translate-middle" style="background-color: #367d9d8f; border: 2px solid #000000; width: 25%;" >Atras</a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+    
+
+{% endblock %}

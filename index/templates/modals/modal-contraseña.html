@@ -1,0 +1,59 @@
+<!-- Modal -->
+{% load crispy_forms_tags %}
+
+{% if validlink %}
+
+<div class="modal fade show " id="exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog" style="display: block;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-1">Nueva Contraseña</h1>
+                <a class="btn-close" data-bs-dismiss="modal" href="{% url 'index' %}" aria-label="Close"></a>
+            </div>
+            <div class="modal-body modal-1">
+                <form method="POST">
+                    {% csrf_token %}
+                
+                    {{form.new_password1.errors}}
+                    <label class="modal-1" for="id_new_password1">Nueva Contraseña:</label>
+                    {{ form.new_password1}}
+                    <br><br> 
+                    {{form.new_password2.errors}}
+                    <label class="modal-1" for="id_new_password2">Confirmar Contraseña:</label>
+                    {{ form.new_password2}}
+                
+            </div>
+            <div class="modal-footer modal-1">
+                <a class="btn btn-2" type="submit">Confirmar</a></form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show"></div>
+{% else %}
+
+<h1 class="text-center modal-1">Enlace inválido: Este enlace ya ha sido utilizado</h1>
+{% endif %}
+
+<!--{% if validlink %}
+<h1>Nueva Contraseña</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{form.new_password1.errors}}
+    <label for="id_new_password1">Nueva Contraseña:</label>
+    {{ form.new_password1}}
+
+    {{form.new_password2.errors}}
+    <label for="id_new_password2">Confirmar Contraseña:</label>
+    {{ form.new_password2}}
+    <input type="submit" value="Cambiar mi contraseña"/>
+</form>
+
+{% else %}
+
+<h1 class="text-center">Enlace inválido: Este enlace ya ha sido utilizado</h1>
+
+{% endif %}-->

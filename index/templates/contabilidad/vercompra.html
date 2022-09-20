@@ -1,0 +1,55 @@
+{% extends "partials/bodytablas.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block tittle %}
+Compra
+{% endblock %}
+{% block contenido %}
+
+
+    <div class="contenedor3 ">
+        <div class=" p-5 w-25 shadow tabla position-absolute top-50 start-50 translate-middle" style="background-color: rgb(219 237 239);">
+            
+            <table class="mb-5 table results">
+                <thead class="border1 border-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <td scope="col">{{compra.id}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Fecha</th>
+                        <td scope="col">{{compra.fecha}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Proveedor</th>
+                        <td scope="col">{{compra.proveedor}}</td>
+                    </tr>
+                    {% for detalle in detalles %}
+                    <tr>
+                        <th scope="col">Material</th>
+                        <td scope="col">{{detalle.material}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Cantidad</th>
+                        <td scope="col">{{detalle.cantidad}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Metodo de pago</th>
+                        <td scope="col">{{detalle.metodo}}</td>
+                    </tr>
+                    {% endfor %}
+                </thead>
+                
+
+            </table>
+            <div class="ventana">
+                <a href="{% url 'contabilidad-compra' %}" class="btn mt-5 w-3 position-absolute bottom-0 start-50 translate-middle btn-1 border-dark" >Atras</a>
+            </div>
+        
+        </div>
+    </div>
+
+        
+
+
+{% endblock %}

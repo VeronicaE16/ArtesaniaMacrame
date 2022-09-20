@@ -1,0 +1,65 @@
+{% extends "partials/bodytablas.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+Venta
+{% endblock title %}
+{% block contenido %}
+
+<div class="container">
+    <div>
+        <a href="{% url 'contabilidad-venta' %}"><button type="button"class="mt-5  btn botonventa btn-2"><strong>Atras</strong>
+  </button></a>
+      </div>
+    <div class="row my-5">
+
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header item">
+                    <i class="fas fa-chart-area me-1"></i> Ventas por categoría al mes
+                </div>
+                <div class="card-body">
+
+                    <canvas id="graficas" width="400" height="200"></canvas>
+                    
+                        <!-- Datos chart bar-->
+                        {% for mes,venta in ventas.items %}
+                        <div class="d-none" id="data-area-{{mes}}">{{venta}}</div>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header item">
+                    <i class="fas fa-chart-area me-1"></i> Ventas por mes
+                </div>
+                <div class="card-body">
+
+                    <canvas id="grafica" width="400" height="200"></canvas>
+                        <!-- Datos chart area-->
+                </div>   
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header item">
+                    <i class="fas fa-chart-area me-1"></i> Productos mas vendidos por categoría
+                </div>
+                <div class="card-body">
+
+                    <canvas id="birdsChart" width="400" height="200"></canvas>
+                        <!-- Datos chart area-->
+                        <!-- Datos chart polar area-->
+                        {% for mes,venta in ventas.items %}
+                        <div class="d-none" id="data-area-{{mes}}">{{venta}}</div>
+                        {% endfor %}
+                </div>   
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

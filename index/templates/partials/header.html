@@ -1,0 +1,66 @@
+{% load static %}
+<header class="w-100 S1">
+    <div>
+        {% if user.is_authenticated %} 
+       <div class="container ">
+            <div class="row py-4">
+                <div class="col-3 ">
+                    <img class="img-fluid" src="{% static 'img/Logo.png' %}">
+                </div>
+                <div class="col-6 d-flex justify-content-center  flex-column  ">
+                    <div class="align-self-length py-1 ">
+                        <h3 class="text-light fst-GEORGIA">Artesanías Macramé</h3>
+                    </div>
+                </div>
+                
+                <div class="col-3  d-flex text-center  flex-column ">
+                    <div class="btn-group dropend">
+                        <button type="button" class="btn rounded" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-list text-light" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'inicio' %}">Menú</a></li>
+                            <hr>
+                            <li><a class="dropdown-item" href="{% url 'persona-proveedor' %}">° Proveedor</a></li>
+                            <li><a class="dropdown-item" href="{% url 'control-material' %}">° Material</a></li>
+                            <li><a class="dropdown-item" href="{% url 'contabilidad-venta' %}">° Venta</a></li>
+                            <li><a class="dropdown-item" href="{% url 'contabilidad-compra' %}">° Compra</a></li>
+                            <li><a class="dropdown-item" href="{% url 'control-producto' %}">° Producto</a></li>
+                            <li><a class="dropdown-item" href="{% url 'persona-cliente' %}">° Cliente</a></li>
+                            <li><a class="dropdown-item" href="{% url 'persona-usuario' %}">° Usuario</a></li>
+                            <hr>
+                            <li><a class="dropdown-item" href="{% url 'ayuda' %}">° Ayuda</a></li>
+                            <hr>
+                            <li><a class="dropdown-item" href="{% url 'backup' tipo='A' %}">° Copia de seguridad</a></li>
+                            <hr>
+                            <li><a class="dropdown-item" href="{% url 'creditos' %}">° Créditos</a></li>
+                            <hr>
+                            <li><a class="dropdown-item" href="{% url 'usuario-logout' %}">° Salir</a></li>
+                            
+                        <!-- Dropdown menu links -->
+                        </ul>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        {% else %}
+        <div class="container ">
+            <div class="row py-4">
+                <div class="col-3 ">
+                    <img class="img-fluid" src="../../static/img/Logo.png">
+                </div>
+                <div class="col-6 d-flex justify-content-center  flex-column  fst-italic ">
+                    <div class="align-self-length py-1 fst-italic">
+                        <h3 class="text-light fst-italic">Artesanias Macramé</h3>
+                    </div>
+                </div>
+                
+            </div> 
+        </div>
+        {% endif %}
+
+      </div>
+    
+</header>

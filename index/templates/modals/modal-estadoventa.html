@@ -1,0 +1,26 @@
+<!-- Modal -->
+{% load crispy_forms_tags %}
+<div class="ventana">
+    
+    <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog" style="display: block">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title modal-1" id="exampleModalLabel">{{titulo_modal}}</h5>
+                    <a class="btn-close" data-bs-dismiss="modal" href="{% url 'contabilidad-venta' %}" aria-label="Close"></a>
+                </div>
+                <div class="modal-body">
+                    <p>{{estado_msj}}</p>
+                    <form action="" method="POST">
+                </div>
+                <div class="modal-footer">
+                    {% csrf_token %}
+                <a href="{% url 'contabilidad-venta' %}"><input type="button" class="btn btn-3" value="No"></button></a>
+                <input type="submit" class="btn btn-3" value="{{estado_txt}}">
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show"></div>

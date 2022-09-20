@@ -1,0 +1,26 @@
+{% load crispy_forms_tags %}
+
+
+<div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog" style="display: block;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title modal-1" id="exampleModalLabel">{{titulo_modal}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-1">
+                <form action="" method="POST">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+            </div>
+            <div class="modal-footer">
+              <a href="{% url 'contabilidad-tabladetalle' compra.id %}"><input type="submit" class="btn btn-3" value="Confirmar"></button></a>
+            
+              <!--<input type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-dismiss="modal" value="Agregar"></button>-->
+              <!--<input class="btn btn-success btn-block" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" type="submit" value="Agregar Aprendiz">-->
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="modal-backdrop fade show"></div>
+  <!--<div class="modal-backdrop fade show"></div>-->

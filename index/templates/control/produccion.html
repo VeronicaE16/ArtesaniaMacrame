@@ -1,0 +1,96 @@
+{% extends "partials/bodytablas.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block tittle %}
+Producción
+{% endblock %}
+{% block contenido %}
+
+<div class="btn-group dropstart position-fixed top-50 end-0 me-1" style="z-index: 1000 !important;">
+  <button type="button" class="btn btn-secondary dropdown-toggle imgPsAcc" data-bs-toggle="dropdown" aria-expanded="false">
+    <img src="../../static/img/acce.png" class="imgAcc">
+  </button>
+  <ul class="dropdown-menu">
+    <li><button title="Ampliar" class="dropdown-item item" id="ampliar">
+      <img class="w-25 " src="{% static 'img/+.png' %}" alt="">  Aumentar</button></li>
+    <li><button title="Reducir" class="dropdown-item item"  id="reducir">  
+      <img class="w-25 " src="{% static 'img/-.png' %}" alt="">  Disminuir</button></li>
+    <li><button title="Contraste" class="dropdown-item  item" id="dark">
+       <img class="w-25 " src="{% static 'img/Contraste.png' %}" alt=""> Dark-mode</button>
+    </li>
+    <li><button title="Restaurar" class="dropdown-item item" id="restaurar">Restaurar</button></li>
+  </ul>
+
+</div>
+
+
+<div class="container">
+    <div class="row my-5">
+        
+        
+        <div class="p-2 fondo-tabla tabla-1">
+
+            
+            <div style="margin-left: 10%; margin-right: 10%;">
+                <table class="table table-striped bg-light" style="background-color: gainsboro transparent;" id="tabla">
+                    <thead>
+                        <tr>
+                        <th scope="col">Material</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Fecha de inicio</th>
+                        <th scope="col">Fecha Final</th>
+                        <th scope="col">Cantidad de material</th>
+                        <th scope="col">Gastos</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for produccion in producciones %}
+
+                        <tr>
+                            <td> {{produccion.material}} </td>
+                            <td> {{produccion.producto}} </td>
+                            <td> {{produccion.fechai}} </td>
+                            <td> {{produccion.fechaf}} </td>
+                            <td> {{produccion.cantidad_material}} m</td>
+                            <td> {{produccion.gastos}} </td>
+                            <td> {{produccion.estado}} </td>
+                            {% if produccion.estado == "Activo" %}
+                            <td><a href="{% url 'control-produccion-editar' produccion.id %}" class="unstyled btn-sm" alt="Editar" title="Editar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-dark bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg></a>
+                            <a href="{% url 'control-produccion-eliminar' produccion.id %}" class="unstyled btn-sm" alt="Eliminar" title="Eliminar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-dark bi bi-trash3" viewBox="0 0 16 16">
+                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                        </svg></a>
+                        </td>
+                        {% else %}
+                        <td><a href="{% url 'control-produccion-editar' produccion.id %}" class="unstyled btn-sm" alt="Editar" title="Editar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-dark bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                        </svg></a>
+                    
+                    </td>{% endif %}
+                        </tr>
+                        {% endfor %} 
+                    </tbody>
+                </table>
+                
+            </div>
+            <div>
+              <a href="{% url 'control-producto' %}"><button type="button"class="btn botonAtras btn-3"><strong>Atras</strong>
+        </button></a>
+            </div>
+{% include "modals/modal-general.html" %} 
+        </div>
+    </div>
+</div>
+    <script src="../static/js/lsprueba.js"></script>
+    <script src="../static/js/toast.js"></script>
+    <script src="../static/js/tabla.js"></script>
+    <script src="../static/js/jquery-3.5.1.min.js"></script>
+    <script src="../static/js/jquery.dataTables.min.js"></script>
+    <script src="../static/js/dataTables.bootstrap5.min.js"></script>
+        
+{% endblock %}

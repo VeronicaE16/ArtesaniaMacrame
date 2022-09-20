@@ -1,0 +1,88 @@
+{% extends "partials/body.html" %}
+{% load static %}
+{% block contenidoindex %}
+
+      
+    <div class="contenedor2-index position-absolute top-50 start-50 translate-middle">
+        <div class="p-0 m-0 position-absolute  top-0 end-0">
+          <div class="text-center"  >
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="imgIngresar d-block  mx-auto bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg>
+          </div>
+
+          <div class="btn-group dropstart position-fixed top-50 end-0 me-1" style="z-index: 1000 !important;">
+            <button type="button" class="btn btn-secondary dropdown-toggle imgPsAcc" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../static/img/acce.png" class="imgAcc">
+            </button>
+            <ul class="dropdown-menu">
+              <li><button title="Ampliar" class="dropdown-item" id="ampliar">
+                <img class="w-25 " src="{% static 'img/+.png' %}" alt="">  Aumentar</button></li>
+              <li><button title="Reducir" class="dropdown-item item"  id="reducir">  
+                <img class="w-25 " src="{% static 'img/-.png' %}" alt="">  Disminuir</button></li>
+              <li><button title="Contraste" class="dropdown-item item" id="dark">
+                 <img class="w-25 " src="{% static 'img/Contraste.png' %}" alt=""> Dark-mode</button>
+              </li>
+              <li><button title="Restaurar" class="dropdown-item item" id="restaurar">Restaurar</button></li>
+            </ul>
+
+        </div>
+
+          <div>
+            {% if user.is_authenticated %} 
+            <a class="btn btn-outline-light text-dark d-block botonISesion"  href="{% url 'usuario-logout' %}" >Cerrar sesión</a>
+           
+            {% else %}
+            <a class="btn btn-outline-light text-dark d-block botonISesion"  href="{% url 'usuario-login' %}" >Iniciar sesión</a>
+            {% endif %}
+
+          </div>
+        </div>
+      <div class="item-2 imgCarrusel">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'img/portamaceta1.jpg' %}" class="d-block w-100 imgCarrusel" alt="portamaceta">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'img/portamaceta2.jpg' %}" class="d-block w-100 imgCarrusel" alt="portamaceta">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'img/portamaceta3.jpg' %}" class="d-block w-100 imgCarrusel" alt="portamaceta">
+            </div>
+            <div class="carousel-item ">
+              <img src="{% static 'img/portamaceta4.jpg' %}" class="d-block w-100 imgCarrusel" alt="portamaceta">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'img/portamaceta5.jpg' %}" class="d-block w-100 imgCarrusel" alt="portamaceta">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'img/portamaceta6.jpg' %}" class="d-block w-100 imgCarrusel" alt="portamaceta">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      
+    </div > 
+    
+ 
+  {% endblock %}
+

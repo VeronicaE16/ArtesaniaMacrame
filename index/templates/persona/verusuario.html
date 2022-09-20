@@ -1,0 +1,61 @@
+{% extends "partials/bodytablas.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block tittle %}
+Proveedor
+{% endblock %}
+{% block contenido %}
+
+
+    <div class="contenedor3 ">
+        <div class=" p-5 w-25 shadow tabla position-absolute top-50 start-50 translate-middle" style="background-color: rgb(219 237 239);">
+            
+            <table class="mb-5 table results">
+                <thead class="border1 border-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <td scope="col">{{usuario.id}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Identificaión</th>
+                        <td scope="col">{{usuario.identificacion}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <td scope="col">{{usuario.nombre}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Apellido</th>
+                        <td scope="col">{{usuario.apellido}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Correo</th>
+                        <td scope="col">{{usuario.correo}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Teléfono</th>
+                        <td scope="col">{{usuario.telefono}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Rol</th>
+                        <td scope="col">{{usuario.rol}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Estado</th>
+                        <td scope="col">{{usuario.estado}}</td>
+                    </tr>
+                </thead>
+                
+
+            </table>
+            <div class="ventana">
+                <a href="{% url 'persona-usuario' %}" class="btn mt-5 w-3 position-absolute bottom-0 start-50 translate-middle btn-1 border-dark " >Atras</a>
+            </div>
+        
+        </div>
+    </div>
+
+        
+
+
+{% endblock %}
